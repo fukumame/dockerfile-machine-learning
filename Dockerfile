@@ -32,7 +32,7 @@ RUN pip3 install --upgrade pyzmq --install-option="--zmq=bundled" && \
     mecab-python3 \
     neologdn
 
-VOLUME .:/notebook
+VOLUME /notebook
 WORKDIR /notebook
 
 EXPOSE 8888
