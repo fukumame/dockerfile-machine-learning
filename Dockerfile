@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
     libxft-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" && \
+RUN echo 'export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"' >> ~/.bash_profile && \
+    . ~/.bash_profile && \
     git clone https://github.com/taku910/mecab.git && \
     cd mecab/mecab && \
     ./configure  --enable-utf8-only && \
