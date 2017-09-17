@@ -32,6 +32,8 @@ RUN pip3 install --upgrade pyzmq --install-option="--zmq=bundled" && \
     mecab-python3 \
     neologdn
 
+ENV LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH
+
 VOLUME /notebook
 WORKDIR /notebook
 
