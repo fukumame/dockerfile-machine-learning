@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN echo 'export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"' >> ~/.bash_profile && \
     . ~/.bash_profile && \
+    cd ~ &&\
     git clone https://github.com/taku910/mecab.git && \
     cd mecab/mecab && \
     ./configure  --enable-utf8-only && \
@@ -19,7 +20,11 @@ RUN echo 'export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"' >> ~/.bash_p
     cd ../mecab-ipadic && \
     ./configure --with-charset=utf8 && \
     make && \
-    make install
+    make install &&\
+    cd ~ &&\
+    git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git && \
+    cd mecab-ipadic-neologd && \
+    ./bin/install-mecab-ipadic-neologd -n -y
 
 RUN pip3 install --upgrade pyzmq --install-option="--zmq=bundled" && \
     pip3 install --upgrade jupyter && \
