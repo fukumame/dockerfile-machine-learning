@@ -2,7 +2,7 @@
 
 ## 概要
 - python3で、主に自然言語処理を行うために必要なライブラリを揃えたdockerfile
-- mecabのインストール、及び以下のpythonライブラリを含む
+- mecab、mecab-ipadic-NEologd(mecabの新語辞書)、及び以下のpythonライブラリを含む
   - jupyter
   - numpy
   - scipy
